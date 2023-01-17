@@ -12,3 +12,28 @@ A simple Twitter scraper made using Puppeteer and Fast HTML Parser. This will ge
 ## Screenshot
 
 ![Result](assets/Result.jpg)
+
+## Running in Docker
+
+1. Build the image
+
+   ```bash
+   docker build . -t scraper
+   ```
+
+   Or, if you use M1:
+
+   ```bash
+   docker buildx build --platform linux/amd64 -t scraper .
+   ```
+
+2. Run the Docker image
+
+   ```bash
+   docker run -it --rm \
+     --volume ${pwd}output:/output \
+     -e TWITTER_URL=<YOUR_TWITTER_URL> \
+     spanduck
+   ```
+
+3. Check your output image in the output folder, located in your working directory.

@@ -22,7 +22,10 @@ export async function scrape(url: string): Promise<Meta | null> {
   if (!/(^http(s?):\/\/[^\s$.?#].[^\s]*)/i.test(url)) return null;
 
   // Run Puppeteer to get the website content
-  const browser = await puppeteer.launch();
+  const browser = await puppeteer.launch({
+    executablePath: "/usr/bin/google-chrome",
+    args: ["--no-sandbox", "--disable-setuid-sandbox"],
+  });
   const page = await browser.newPage();
   await page.setJavaScriptEnabled(true);
   await page.goto(url);

@@ -44,7 +44,7 @@ export async function draw(data: Meta | null) {
   ctx.fillStyle = "#222222";
   ctx.textAlign = "right";
   ctx.fillText(
-    "Made using Spanduck with ♥",
+    "Made using Scraper with ♥",
     canvas.width - 32,
     canvas.height - 32
   );
